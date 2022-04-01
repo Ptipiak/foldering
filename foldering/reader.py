@@ -25,10 +25,10 @@ class Reader:
         return path.open(mode)
 
     @staticmethod
-    def open(path: Path):
+    def read(path: Path):
         return Reader.openFile(Reader(), path), path
 
-    def read(self, path, depth=-1):
+    def open(self, path, depth=-1):
         iterator = path.iterdir()
         # If the depth is reached, close the iterator before any actions
         if depth == 0:
@@ -36,6 +36,6 @@ class Reader:
         for path in iterator:
             depth -= 1
             if path.is_dir():
-                yield from self.read(path, depth)
+                yield from self.open(path, depth)
             if path.is_file():
                 yield path
