@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "foldering"
+version = "0.1.0"
+description = ""
+authors = ["ptipiak.off <ptipiak.off@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonschema = "^4.4.0"
+black = "^22.1.0"
+flake8 = "^4.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+)/
+'''
+
+[tool.flake8]
+ignore = ['E203', 'E266', 'E501', 'W503', 'F403', 'F401']
+max-line-length = 79
+max-complexity = 18
+select = [ 'B', 'C', 'E', 'F', 'W', 'T4', 'B9']
