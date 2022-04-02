@@ -1,16 +1,15 @@
 import logging
-from pathlib import Path
 from typing import List
 
 logger = logging.getLogger(__name__)
 
 
-def ancestors(target: Path, reference: Path) -> list:
+def ancestors(reference: List, target: List) -> list:
     return subset(target.parts, reference.parts)
     return [part for part in target.parts if part in reference.parts]
 
 
-def subset(target: List, reference: List) -> list:
+def subset(reference: List, target: List) -> list:
     return [part for part in target if part in reference]
 
 
