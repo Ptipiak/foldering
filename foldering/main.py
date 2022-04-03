@@ -2,8 +2,7 @@ import foldering.utils as utils
 import logging
 from pathlib import Path
 from foldering.reader import Reader
-from foldering.implementations.validators import JsonValidator
-from foldering.implementations.configuration import Configuration
+from foldering.implementations import JsonValidator, Configuration
 
 logger = logging.getLogger(__name__)
 files = ["schemas", "parameters", "a"]

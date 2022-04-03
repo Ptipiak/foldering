@@ -1,4 +1,4 @@
-from scraping import __version__
+from foldering import __version__
 
 
 def test_version():

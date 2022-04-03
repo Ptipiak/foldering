@@ -2,6 +2,8 @@ __version__ = "0.1.0"
 
 import os
 import logging
+from foldering.reader import Reader
+import foldering.utils as utils
 
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1")
 
