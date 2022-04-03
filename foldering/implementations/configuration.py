@@ -29,9 +29,14 @@ class Configuration(UserDict):
 
     def __reach_set(self, items, value, data={}):
         item = items.pop()
+        logger.debug(f"item: {item}")
         data.setdefault(item, {})
         if len(items) <= 0:
-            data[item] = {**data[item], **value}
+            logger.debug(f"{item}: {value}")
+            if isinstance(value, Configuration):
+                data[item] = {**data[item], **value}
+            else:
+                data[item] = value
             return data
         data = {**data[item], **self.__reach_set(items, value, data[item])}
         return data

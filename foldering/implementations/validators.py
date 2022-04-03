@@ -1,16 +1,17 @@
 import logging
-import foldering.abstractions.validator as abstract
+from foldering.abstractions import Validator as AbstractValidator
 from jsonschema import validate, Validator
 
 logger = logging.getLogger(__name__)
 
 
-class JsonValidator(abstract.Validator):
+class JsonValidator(AbstractValidator):
     def __init__(self, schema=None):
         self._schema = schema
 
     def validate(self, value):
         validate(value, self.schema)
+        return True
 
     @property
     def schema(self):

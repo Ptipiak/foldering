@@ -15,12 +15,14 @@ def main():
     param_path = Path("./conf/parameters")
     iterator_params = reader.open(param_path)
     settings = Configuration()
+    settings["alpha"] = Configuration()
+    settings["alpha", "alpha"] = 2
     validator = JsonValidator()
+    logger.info(settings)
     for schema, _ in map(reader.read, iterator_schemas):
         validator.schema = schema
     for param, path in map(reader.read, iterator_params):
         validator.validate(param)
         ancestors = utils.subset(files, path.parts)
-        logger.debug(f"ancestors: {ancestors}")
         settings[tuple(ancestors)] = param
     logger.info(settings)

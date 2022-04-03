@@ -5,8 +5,7 @@ logger = logging.getLogger(__name__)
 
 
 def ancestors(reference: List, target: List) -> list:
-    return subset(target.parts, reference.parts)
-    return [part for part in target.parts if part in reference.parts]
+    return subset(reference.parts, target.parts)
 
 
 def subset(reference: List, target: List) -> list:
